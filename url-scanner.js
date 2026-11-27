@@ -1,5 +1,6 @@
 
 function scanURL() {
+
     const input = document.getElementById("url").value.trim();
     const result = document.getElementById("url-result");
 
@@ -16,8 +17,12 @@ function scanURL() {
         if (!["http:", "https:"].includes(url.protocol)) {
             throw new Error("Invalid protocol");
         }
+
     } catch (error) {
-        result.innerHTML = "<h3>⚠️ Invalid URL</h3><p>Please enter a valid link starting with http:// or https://</p>";
+        result.innerHTML = `
+            <h3>⚠️ Invalid URL</h3>
+            <p>Please enter a valid link starting with http:// or https://</p>
+        `;
         return;
     }
 
@@ -86,4 +91,17 @@ function scanURL() {
         <ul>${details}</ul>
         <p><strong>Note:</strong> This is a basic URL check. A low-risk result does not guarantee that a website is safe.</p>
     `;
+
+    // SAVE URL SCAN IN DASHBOARD
+
+    let stats = JSON.parse(localStorage.getItem("cyberStats")) || {
+        messages: 0,
+        urls: 0,
+        quizzes: 0
+    };
+
+    stats.urls++;
+
+    localStorage.setItem("cyberStats", JSON.stringify(stats));
+
 }
