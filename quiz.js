@@ -130,17 +130,14 @@ function showQuestion() {
     document.getElementById("score-display").textContent =
         `⭐ Score: ${score}`;
 
-    // Progress bar
     const progress =
         ((currentQuestion + 1) / questions.length) * 100;
 
     document.getElementById("progress-bar").style.width =
         progress + "%";
 
-    // Display question and answers
     let html = `
         <h3>${question.question}</h3>
-
         <div class="answers">
     `;
 
@@ -159,9 +156,7 @@ function showQuestion() {
 
     html += `
         </div>
-
         <div id="feedback"></div>
-
         <button id="next-button"
                 onclick="nextQuestion()"
                 disabled>
@@ -172,7 +167,6 @@ function showQuestion() {
     `;
 
     document.getElementById("question-area").innerHTML = html;
-
 }
 
 
@@ -191,7 +185,6 @@ function checkAnswer(selectedIndex) {
     const feedback =
         document.getElementById("feedback");
 
-    // Display correct answer
     buttons[question.correct].classList.add("correct-answer");
 
     if (selectedIndex === question.correct) {
@@ -199,9 +192,7 @@ function checkAnswer(selectedIndex) {
         score++;
 
         feedback.innerHTML = `
-            <p class="correct-feedback">
-                ✓ Correct answer!
-            </p>
+            <p class="correct-feedback">✓ Correct answer!</p>
             <p>${question.explanation}</p>
         `;
 
@@ -210,26 +201,20 @@ function checkAnswer(selectedIndex) {
         buttons[selectedIndex].classList.add("wrong-answer");
 
         feedback.innerHTML = `
-            <p class="wrong-feedback">
-                ✗ Incorrect answer!
-            </p>
+            <p class="wrong-feedback">✗ Incorrect answer!</p>
             <p>${question.explanation}</p>
         `;
 
     }
 
-    // Update score
     document.getElementById("score-display").textContent =
         `⭐ Score: ${score}`;
 
-    // Disable all answers
     buttons.forEach(button => {
         button.disabled = true;
     });
 
-    // Enable next button
     document.getElementById("next-button").disabled = false;
-
 }
 
 
@@ -241,15 +226,26 @@ function nextQuestion() {
     currentQuestion++;
 
     if (currentQuestion < questions.length) {
-
         showQuestion();
-
     } else {
-
         showResult();
-
     }
 
+}
+
+
+// SAVE QUIZ IN DASHBOARD
+function saveQuizResult() {
+
+    let stats = JSON.parse(localStorage.getItem("cyberStats")) || {
+        messages: 0,
+        urls: 0,
+        quizzes: 0
+    };
+
+    stats.quizzes++;
+
+    localStorage.setItem("cyberStats", JSON.stringify(stats));
 }
 
 
@@ -272,40 +268,31 @@ function showResult() {
     let message;
 
     if (percentage >= 80) {
-
         emoji = "🏆";
         message = "Excellent! You're a Cybersecurity Expert!";
-
     } else if (percentage >= 50) {
-
         emoji = "🌸";
         message = "Good job! Keep learning and improving!";
-
     } else {
-
         emoji = "💗";
         message = "Keep practicing! You can become a Cybersecurity Pro!";
-
     }
+
+    // Save completed quiz
+    saveQuizResult();
 
     document.getElementById("quiz-result").innerHTML = `
         <div class="result-emoji">${emoji}</div>
-
         <h2>Quiz Completed!</h2>
-
         <div class="final-score">
             ${score} / ${questions.length}
         </div>
-
         <h3>${percentage}%</h3>
-
         <p>${message}</p>
-
         <button id="next-button" onclick="restartQuiz()">
             ↻ Try Again
         </button>
     `;
-
 }
 
 
@@ -321,7 +308,6 @@ function restartQuiz() {
     document.getElementById("quiz-result").innerHTML = "";
 
     showQuestion();
-
 }
 
 
