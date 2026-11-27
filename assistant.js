@@ -1,85 +1,110 @@
 
+function showConversation() {
+    document.getElementById("welcomeScreen").style.display = "none";
+    document.getElementById("chatBox").style.display = "block";
+}
+
+function addMessage(message, type) {
+    const chatBox = document.getElementById("chatBox");
+
+    const row = document.createElement("div");
+    row.className = "chat-message " + type;
+
+    const avatar = document.createElement("div");
+    avatar.className = "chat-avatar";
+    avatar.textContent = type === "user" ? "👤" : "🤖";
+
+    const bubble = document.createElement("div");
+    bubble.className = "chat-bubble";
+    bubble.textContent = message;
+
+    row.appendChild(avatar);
+    row.appendChild(bubble);
+
+    chatBox.appendChild(row);
+
+    document.getElementById("userInput").focus();
+
+    const content = document.querySelector(".ai-content");
+    content.scrollTop = content.scrollHeight;
+}
+
 function sendMessage(event) {
     event.preventDefault();
 
     const input = document.getElementById("userInput");
-    const chatBox = document.getElementById("chatBox");
-
     const message = input.value.trim();
 
-    if (message === "") return;
+    if (!message) return;
 
-    addMessage(message, "user-message");
+    showConversation();
+
+    addMessage(message, "user");
+
+    input.value = "";
 
     const response = getResponse(message);
 
     setTimeout(function () {
-        addMessage(response, "bot-message");
-        chatBox.scrollTop = chatBox.scrollHeight;
+        addMessage(response, "bot");
     }, 400);
-
-    input.value = "";
 }
 
-function addMessage(message, className) {
-    const chatBox = document.getElementById("chatBox");
+function askQuestion(question) {
+    showConversation();
 
-    const messageDiv = document.createElement("div");
-    messageDiv.className = "message " + className;
+    addMessage(question, "user");
 
-    const title = document.createElement("strong");
-    title.textContent = className === "user-message"
-        ? "👤 You"
-        : "🤖 CyberGuard AI";
+    setTimeout(function () {
+        addMessage(getResponse(question), "bot");
+    }, 400);
+}
 
-    const paragraph = document.createElement("p");
-    paragraph.textContent = message;
-
-    messageDiv.appendChild(title);
-    messageDiv.appendChild(paragraph);
-
-    chatBox.appendChild(messageDiv);
-    chatBox.scrollTop = chatBox.scrollHeight;
+function newChat() {
+    document.getElementById("chatBox").innerHTML = "";
+    document.getElementById("chatBox").style.display = "none";
+    document.getElementById("welcomeScreen").style.display = "block";
+    document.getElementById("userInput").value = "";
 }
 
 function getResponse(message) {
     const text = message.toLowerCase();
 
     if (text.includes("phishing")) {
-        return "Phishing is a cyberattack where criminals send fake emails or messages to steal personal information. Never click suspicious links!";
+        return "Phishing is a cyberattack where criminals use fake emails, messages or websites to steal personal information. Always verify the sender and avoid suspicious links.";
     }
 
     if (text.includes("password")) {
-        return "Use a strong password with uppercase and lowercase letters, numbers and symbols. Avoid using the same password for multiple accounts.";
+        return "Create a long and unique password. Use a mix of letters, numbers and symbols. Never reuse passwords, and activate two-factor authentication whenever possible.";
     }
 
-    if (text.includes("virus") || text.includes("malware")) {
-        return "Malware is malicious software designed to damage devices or steal information. Use trusted antivirus software and avoid downloading unknown files.";
+    if (text.includes("malware") || text.includes("virus")) {
+        return "Malware is software designed to harm devices or steal information. Avoid unknown downloads, keep your system updated and use trusted security software.";
     }
 
     if (text.includes("hack") || text.includes("hacked")) {
-        return "If your account is hacked, change your password immediately, activate two-factor authentication and check your account activity.";
+        return "If your account is hacked, change its password from a trusted device, secure your recovery email, activate two-factor authentication and review recent account activity.";
     }
 
     if (text.includes("wifi") || text.includes("network")) {
-        return "Avoid connecting to unknown public Wi-Fi networks. Use secure networks and avoid entering sensitive information on unsecured connections.";
+        return "Protect your Wi-Fi with WPA2 or WPA3 encryption and a strong router password. Update your router and avoid sensitive activities on untrusted public Wi-Fi.";
     }
 
     if (text.includes("email")) {
-        return "Be careful with unexpected emails, suspicious attachments and unknown links. Always verify the sender before responding.";
+        return "Check the sender's address carefully. Avoid unexpected attachments and links, and never share passwords or verification codes by email.";
     }
 
     if (text.includes("2fa") || text.includes("two-factor")) {
-        return "Two-factor authentication (2FA) adds another layer of security by requiring a second verification step when you sign in.";
+        return "Two-factor authentication adds an extra security step when you sign in. Even if someone discovers your password, they may still be unable to access your account.";
     }
 
     if (text.includes("hello") || text.includes("hi") || text.includes("hey")) {
-        return "Hello! 💗 I'm CyberGuard AI. How can I help you with cybersecurity today?";
+        return "Hello! 💗 Welcome to CyberGuard AI. What would you like to learn about cybersecurity?";
     }
 
     if (text.includes("thank")) {
-        return "You're welcome! 💗 Stay safe online!";
+        return "You're welcome! 💗 Stay safe and protected online!";
     }
 
-    return "That's an interesting question! I can help you with phishing, passwords, malware, hacked accounts, email security and Wi-Fi protection. Try asking me about one of these topics.";
+    return "I'm here to help with cybersecurity! You can ask me about phishing, password security, malware, hacked accounts, email protection or Wi-Fi security.";
 }
