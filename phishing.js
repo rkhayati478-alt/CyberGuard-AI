@@ -45,9 +45,10 @@ function analyzeMessage() {
                 reasons.push("The link does not use HTTPS.");
             }
 
-            if (parsedURL.hostname.includes("@")) {
+            // Check suspicious @ in URL
+            if (parsedURL.username || parsedURL.password) {
                 score += 2;
-                reasons.push("The URL contains a suspicious @ symbol.");
+                reasons.push("The URL contains suspicious login information.");
             }
 
             if (parsedURL.hostname.split(".").length > 3) {
@@ -86,4 +87,15 @@ function analyzeMessage() {
         <ul>${details}</ul>
         <p><strong>Note:</strong> This is a basic rule-based analysis, not a guarantee that the message is safe.</p>
     `;
+
+    // SAVE ANALYSIS IN DASHBOARD
+    let stats = JSON.parse(localStorage.getItem("cyberStats")) || {
+        messages: 0,
+        urls: 0,
+        quizzes: 0
+    };
+
+    stats.messages++;
+
+    localStorage.setItem("cyberStats", JSON.stringify(stats));
 }
