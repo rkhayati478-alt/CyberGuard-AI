@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuard AI | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-page">
+
+<div class="dashboard-layout">
+
+    <aside class="dashboard-sidebar">
+
+        <a href="index.html" class="dashboard-logo">
+            🛡️ CyberGuard AI
+        </a>
+
+        <div class="dashboard-profile">
+            <div class="profile-icon">👩🏻‍💻</div>
+            <h3>Welcome Back!</h3>
+            <p>Your Security Overview</p>
+        </div>
+
+        <nav class="dashboard-nav">
+            <a href="index.html">⌂ Home</a>
+            <a href="phishing.html">📧 Phishing Detector</a>
+            <a href="url-scanner.html">🔗 URL Scanner</a>
+            <a href="password-checker.html">🔐 Password Checker</a>
+            <a href="assistant.html">🤖 AI Assistant</a>
+            <a href="quiz.html">🧠 Security Quiz</a>
+        </nav>
+
+        <a href="index.html" class="dashboard-back">
+            ← Back to Home
+        </a>
+
+    </aside>
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+            <div>
+                <h2>Dashboard Overview</h2>
+                <p>Monitor your cybersecurity activity in one place.</p>
+            </div>
+
+            <span class="dashboard-status">● SYSTEM ACTIVE</span>
+        </header>
+
+        <section class="dashboard-welcome">
+            <div>
+                <span>YOUR SECURITY CENTER</span>
+                <h1>Stay safe, stay <strong>protected.</strong></h1>
+                <p>Track your activity and improve your online security.</p>
+            </div>
+            <div class="dashboard-shield">🛡️</div>
+        </section>
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <p>Total Analyses</p>
+                <h2 id="total-analyses">0</h2>
+                <span>Security checks performed</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📧</div>
+                <p>Messages Analyzed</p>
+                <h2 id="message-count">0</h2>
+                <span>Phishing detector</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🔗</div>
+                <p>URLs Scanned</p>
+                <h2 id="url-count">0</h2>
+                <span>Link security checks</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🧠</div>
+                <p>Quizzes Completed</p>
+                <h2 id="quiz-count">0</h2>
+                <span>Knowledge challenges</span>
+            </div>
+
+        </section>
+
+        <section class="dashboard-bottom">
+
+            <div class="dashboard-panel">
+                <h3>📈 Your Activity</h3>
+                <p class="panel-description">Your cybersecurity checks</p>
+
+                <div class="activity-chart">
+                    <div class="chart-column">
+                        <div class="chart-bar" style="height: 25%"></div>
+                        <span>Mon</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <div class="chart-bar" style="height: 45%"></div>
+                        <span>Tue</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <div class="chart-bar" style="height: 35%"></div>
+                        <span>Wed</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <div class="chart-bar" style="height: 70%"></div>
+                        <span>Thu</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <div class="chart-bar" style="height: 50%"></div>
+                        <span>Fri</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <div class="chart-bar" style="height: 85%"></div>
+                        <span>Sat</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <div class="chart-bar" style="height: 40%"></div>
+                        <span>Sun</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-panel security-panel">
+                <h3>🛡️ Security Tips</h3>
+
+                <div class="security-tip">
+                    <span>🔐</span>
+                    <div>
+                        <strong>Use strong passwords</strong>
+                        <p>Create unique passwords for your accounts.</p>
+                    </div>
+                </div>
+
+                <div class="security-tip">
+                    <span>📩</span>
+                    <div>
+                        <strong>Watch out for phishing</strong>
+                        <p>Always verify suspicious emails and links.</p>
+                    </div>
+                </div>
+
+                <div class="security-tip">
+                    <span>🔄</span>
+                    <div>
+                        <strong>Update your software</strong>
+                        <p>Keep your devices protected with updates.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="dashboard-footer">
+            💗 CyberGuard AI — Your digital safety companion.
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>
