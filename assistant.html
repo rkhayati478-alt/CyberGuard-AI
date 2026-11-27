@@ -4,60 +4,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Assistant | CyberGuard AI</title>
+    <title>CyberGuard AI Assistant</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="assistant-page">
 
-    <header>
-        <h2>🛡️ CyberGuard AI</h2>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="index.html#tools">Security Tools</a>
-        </nav>
-    </header>
+    <div class="ai-layout">
 
-    <section class="phishing-hero">
-        <div class="phishing-icon">🤖</div>
-        <h1>Cybersecurity Assistant</h1>
-        <p>Your friendly assistant for a safer digital world.</p>
-    </section>
+        <aside class="ai-sidebar">
+            <a href="index.html" class="ai-logo">🛡️ CyberGuard AI</a>
 
-    <main class="chat-container">
+            <button class="new-chat" onclick="newChat()">＋ New Chat</button>
 
-        <div class="chat-heading">
-            <span>✨ CYBERGUARD AI</span>
-            <h2>How can I help you?</h2>
-            <p>Ask me anything about cybersecurity!</p>
-        </div>
-
-        <div class="chat-box" id="chatBox">
-            <div class="message bot-message">
-                <strong>🤖 CyberGuard AI</strong>
-                <p>Hello! 👋 Welcome to CyberGuard AI. Ask me a question about online security!</p>
+            <div class="sidebar-section">
+                <p>YOUR ASSISTANT</p>
+                <div class="assistant-profile">
+                    <div class="profile-icon">🤖</div>
+                    <div>
+                        <strong>CyberGuard AI</strong>
+                        <small><span class="online-dot"></span> Online</small>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <form class="chat-input-area" onsubmit="sendMessage(event)">
-            <input
-                type="text"
-                id="userInput"
-                placeholder="Ask me about cybersecurity..."
-                autocomplete="off"
-                required
-            >
-            <button type="submit">Send ➤</button>
-        </form>
+            <div class="sidebar-bottom">
+                <a href="index.html">⌂ Back to Home</a>
+                <p>© 2026 CyberGuard AI</p>
+            </div>
+        </aside>
 
-        <p class="chat-note">💗 Stay safe, stay protected!</p>
+        <main class="ai-main">
 
-        <a class="back-home" href="index.html">← Back to Home</a>
+            <div class="ai-topbar">
+                <div>
+                    <strong>AI Cybersecurity Assistant</strong>
+                    <p>Your personal digital safety companion</p>
+                </div>
+                <span class="ai-status">● Online</span>
+            </div>
 
-    </main>
+            <section class="ai-content">
 
-    <footer>
-        <p>© 2026 CyberGuard AI - All Rights Reserved</p>
-    </footer>
+                <div class="welcome-screen" id="welcomeScreen">
+                    <div class="welcome-avatar">🤖</div>
+
+                    <span class="welcome-label">WELCOME TO CYBERGUARD AI</span>
+
+                    <h1>How can I help you<br>
+                        <span>stay safe online?</span>
+                    </h1>
+
+                    <p>
+                        Ask me anything about cybersecurity.
+                        I'm here to help you understand and protect your digital world.
+                    </p>
+
+                    <div class="suggestion-grid">
+                        <button onclick="askQuestion('What is phishing?')">
+                            <span>📧</span>
+                            <strong>What is phishing?</strong>
+                            <small>Learn to detect fake messages</small>
+                        </button>
+
+                        <button onclick="askQuestion('How can I protect my password?')">
+                            <span>🔐</span>
+                            <strong>Password security</strong>
+                            <small>Create stronger passwords</small>
+                        </button>
+
+                        <button onclick="askQuestion('What is malware?')">
+                            <span>🦠</span>
+                            <strong>What is malware?</strong>
+                            <small>Understand online threats</small>
+                        </button>
+
+                        <button onclick="askQuestion('How can I secure my Wi-Fi?')">
+                            <span>📶</span>
+                            <strong>Secure my Wi-Fi</strong>
+                            <small>Protect your network</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="conversation" id="chatBox"></div>
+
+            </section>
+
+            <div class="ai-composer">
+                <form class="composer-box" onsubmit="sendMessage(event)">
+                    <input
+                        type="text"
+                        id="userInput"
+                        placeholder="Ask CyberGuard anything..."
+                        autocomplete="off"
+                        required
+                    >
+                    <button type="submit" aria-label="Send message">➤</button>
+                </form>
+                <p>✨ CyberGuard AI can make mistakes. Always verify important security information.</p>
+            </div>
+
+        </main>
+    </div>
 
     <script src="assistant.js"></script>
 </body>
