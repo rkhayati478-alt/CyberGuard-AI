@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Scanner | CyberGuard AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h2>🛡️ CyberGuard AI</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#tools">Security Tools</a>
+        </nav>
+    </header>
+
+    <section class="phishing-hero">
+        <div class="phishing-icon">🔗</div>
+        <h1>URL Scanner</h1>
+        <p>Check suspicious links before visiting them.</p>
+    </section>
+
+    <main class="detector">
+        <div class="detector-heading">
+            <span>✨ Smart URL Analysis</span>
+            <h2>Scan Your URL</h2>
+            <p>Enter a website link to check for suspicious indicators.</p>
+        </div>
+
+        <label for="url">Website URL</label>
+
+        <input
+            type="url"
+            id="url"
+            class="url-input"
+            placeholder="https://example.com"
+        >
+
+        <div class="privacy-note">
+            🔒 The link is checked locally in your browser.
+        </div>
+
+        <button onclick="scanURL()">✨ Scan URL</button>
+
+        <div id="url-result"></div>
+
+        <a class="back-home" href="index.html">← Back to Home</a>
+    </main>
+
+    <footer>
+        <p>© 2026 CyberGuard AI - All Rights Reserved</p>
+    </footer>
+
+    <script src="url-scanner.js"></script>
+</body>
+</html>
