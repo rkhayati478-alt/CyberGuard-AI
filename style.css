@@ -1,0 +1,117 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080d1c;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background: #101a32;
+}
+
+header h2 {
+    color: #55aaff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+nav a:hover {
+    color: #55aaff;
+}
+
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: linear-gradient(135deg, #101a32, #25205c);
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    color: #55aaff;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: #c5cde0;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 28px;
+    background: #2478e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background: #55aaff;
+}
+
+#tools, #about {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+#tools h2, #about h2 {
+    margin-bottom: 35px;
+    color: #55aaff;
+}
+
+.tools-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.tool {
+    background: #121e38;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #263b60;
+    transition: 0.3s;
+}
+
+.tool:hover {
+    transform: translateY(-7px);
+    border-color: #55aaff;
+}
+
+.tool h3 {
+    margin-bottom: 15px;
+}
+
+.tool p, #about p {
+    color: #c5cde0;
+    line-height: 1.7;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #101a32;
+    color: #aab5ca;
+}
