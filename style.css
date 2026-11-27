@@ -364,3 +364,40 @@ footer {
         font-size: 23px;
     }
 }
+
+/* URL SCANNER */
+
+.url-input {
+    width: 100%;
+    padding: 17px;
+    border: 2px solid #f2dce9;
+    border-radius: 15px;
+    background: #fffbfd;
+    color: #493b50;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.url-input:focus {
+    border-color: #dc91b5;
+    box-shadow: 0 0 0 4px #fcebf3;
+}
+
+#url-result {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #fff7fb;
+    color: #765c78;
+    line-height: 1.8;
+}
+
+#url-result:empty {
+    display: none;
+}
+
+#url-result ul {
+    padding-left: 22px;
+    margin: 12px 0;
+}
