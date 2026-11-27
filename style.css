@@ -188,3 +188,179 @@ footer {
         padding: 55px 6%;
     }
 }
+
+/* PHISHING DETECTOR PAGE */
+
+.phishing-hero {
+    text-align: center;
+    padding: 65px 20px 35px;
+    background: linear-gradient(135deg, #ffe8f1, #f2eaff);
+}
+
+.phishing-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 24px;
+    font-size: 35px;
+    box-shadow: 0 8px 25px rgba(210, 135, 180, 0.15);
+}
+
+.phishing-hero h1 {
+    color: #a85f8c;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.phishing-hero p {
+    color: #826d84;
+    font-size: 16px;
+}
+
+.detector {
+    max-width: 780px;
+    margin: 45px auto 70px;
+    padding: 42px;
+    background: white;
+    border: 1px solid #f4dce9;
+    border-radius: 25px;
+    box-shadow: 0 12px 40px rgba(190, 130, 170, 0.13);
+}
+
+.detector-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.detector-heading span {
+    display: inline-block;
+    color: #c477a0;
+    background: #fff0f6;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.detector-heading h2 {
+    color: #704b70;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.detector-heading p {
+    color: #938096;
+    line-height: 1.7;
+}
+
+.detector label {
+    display: block;
+    color: #765c78;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.detector textarea {
+    width: 100%;
+    min-height: 190px;
+    resize: vertical;
+    padding: 18px;
+    border: 2px solid #f2dce9;
+    border-radius: 16px;
+    background: #fffbfd;
+    color: #493b50;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.7;
+    outline: none;
+    transition: 0.3s;
+}
+
+.detector textarea:focus {
+    border-color: #dc91b5;
+    box-shadow: 0 0 0 4px #fcebf3;
+}
+
+.detector textarea::placeholder {
+    color: #c0aebe;
+}
+
+.privacy-note {
+    color: #a17e9a;
+    font-size: 13px;
+    margin: 13px 0 22px;
+}
+
+.detector button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #e99abd, #bda4e8);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(210, 135, 180, 0.22);
+    transition: 0.3s;
+}
+
+.detector button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 23px rgba(210, 135, 180, 0.32);
+}
+
+#result {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #fff7fb;
+    color: #765c78;
+    line-height: 1.8;
+}
+
+#result:empty {
+    display: none;
+}
+
+#result h2 {
+    margin-bottom: 10px;
+}
+
+#result ul {
+    padding-left: 22px;
+    margin: 12px 0;
+}
+
+.back-home {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    color: #c477a0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-home:hover {
+    color: #9d5b89;
+}
+
+@media (max-width: 600px) {
+    .detector {
+        margin: 25px 15px 45px;
+        padding: 25px 18px;
+    }
+
+    .phishing-hero h1 {
+        font-size: 30px;
+    }
+
+    .detector-heading h2 {
+        font-size: 23px;
+    }
+}
