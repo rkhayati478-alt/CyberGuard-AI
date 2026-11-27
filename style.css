@@ -401,3 +401,75 @@ footer {
     padding-left: 22px;
     margin: 12px 0;
 }
+
+/* PASSWORD CHECKER */
+
+.password-field {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.password-field input {
+    flex: 1;
+    min-width: 0;
+    padding: 16px;
+    border: 2px solid #f2dce9;
+    border-radius: 14px;
+    background: #fffbfd;
+    color: #493b50;
+    font-size: 15px;
+    outline: none;
+}
+
+.password-field input:focus {
+    border-color: #dc91b5;
+    box-shadow: 0 0 0 4px #fcebf3;
+}
+
+.password-field button {
+    width: auto;
+    padding: 15px 20px;
+    margin: 0;
+    border-radius: 13px;
+    background: #f4e5f1;
+    color: #a85f8c;
+    box-shadow: none;
+}
+
+.password-field button:hover {
+    background: #eed7e9;
+    transform: none;
+}
+
+#password-result {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #fff7fb;
+    color: #765c78;
+    line-height: 1.8;
+}
+
+#password-result:empty {
+    display: none;
+}
+
+#password-result ul {
+    padding-left: 22px;
+    margin-top: 10px;
+}
+
+.strength-bar {
+    height: 10px;
+    background: #f2dce9;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0 22px;
+}
+
+.strength-bar div {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.3s;
+}
