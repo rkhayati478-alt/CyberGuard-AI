@@ -3,102 +3,112 @@ const questions = [
     {
         question: "What is phishing?",
         answers: [
-            "A type of computer",
-            "A fake message used to steal information",
-            "An antivirus program",
+            "A computer programming language",
+            "A fraudulent attempt to steal personal information",
+            "A type of computer hardware",
             "A secure website"
         ],
-        correct: 1
+        correct: 1,
+        explanation: "Phishing is a cyberattack used to steal sensitive information."
     },
     {
         question: "Which password is the strongest?",
         answers: [
             "123456",
             "password",
-            "Rania123",
-            "T!m3#Blue_92"
+            "rania123",
+            "T!m3#Blue_92$Sky"
         ],
-        correct: 3
+        correct: 3,
+        explanation: "A strong password combines uppercase and lowercase letters, numbers and symbols."
     },
     {
         question: "What should you do with a suspicious link?",
         answers: [
-            "Click immediately",
+            "Click on it immediately",
             "Share it with friends",
-            "Avoid opening it",
+            "Avoid clicking and verify the sender",
             "Enter your password"
         ],
-        correct: 2
+        correct: 2,
+        explanation: "Never open suspicious links before checking their source."
     },
     {
         question: "What does HTTPS indicate?",
         answers: [
-            "The connection is encrypted",
-            "The website is always safe",
-            "The computer is protected",
+            "The connection between your browser and website is encrypted",
+            "The website is guaranteed to be safe",
+            "The website has no viruses",
             "The website is free"
         ],
-        correct: 0
+        correct: 0,
+        explanation: "HTTPS encrypts the connection, but it does not guarantee that a website is trustworthy."
     },
     {
         question: "What is malware?",
         answers: [
             "A security update",
-            "Malicious software",
-            "A web browser",
-            "A password manager"
+            "Malicious software designed to harm or exploit devices",
+            "A computer screen",
+            "A strong password"
         ],
-        correct: 1
+        correct: 1,
+        explanation: "Malware is software designed to damage, disrupt or gain unauthorized access."
     },
     {
-        question: "What is the purpose of 2FA?",
+        question: "What is the purpose of two-factor authentication (2FA)?",
         answers: [
-            "To delete files",
-            "To make internet faster",
-            "To add an extra security layer",
-            "To share passwords"
+            "To make the internet faster",
+            "To delete old files",
+            "To add an extra layer of account security",
+            "To create a new email"
         ],
-        correct: 2
+        correct: 2,
+        explanation: "2FA requires a second verification step in addition to your password."
     },
     {
         question: "What should you do with an unknown email attachment?",
         answers: [
             "Open it immediately",
-            "Download it",
-            "Forward it",
-            "Verify the sender first"
+            "Download it without checking",
+            "Forward it to everyone",
+            "Verify the sender before opening it"
         ],
-        correct: 3
+        correct: 3,
+        explanation: "Unknown attachments may contain malware. Verify the sender first."
     },
     {
         question: "Why are software updates important?",
         answers: [
-            "They fix security vulnerabilities",
+            "They fix security vulnerabilities and bugs",
             "They remove all passwords",
-            "They disable the internet",
-            "They delete accounts"
+            "They disable antivirus software",
+            "They make every website safe"
         ],
-        correct: 0
+        correct: 0,
+        explanation: "Updates often fix vulnerabilities that attackers could exploit."
     },
     {
         question: "What is a firewall?",
         answers: [
-            "A type of virus",
-            "A security system that filters network traffic",
-            "A social network",
-            "A computer game"
+            "A type of keyboard",
+            "A security system that monitors and filters network traffic",
+            "A social media application",
+            "A file storage device"
         ],
-        correct: 1
+        correct: 1,
+        explanation: "A firewall controls network traffic according to security rules."
     },
     {
         question: "What should you do if your account is hacked?",
         answers: [
-            "Ignore it",
-            "Share your password",
+            "Ignore the problem",
+            "Delete your computer",
             "Change your password and secure your account",
-            "Delete your computer"
+            "Share your password with friends"
         ],
-        correct: 2
+        correct: 2,
+        explanation: "Change your password, enable 2FA and check your account activity."
     }
 ];
 
@@ -106,128 +116,214 @@ let currentQuestion = 0;
 let score = 0;
 let answered = false;
 
+
+// DISPLAY QUESTION
 function showQuestion() {
+
     answered = false;
 
-    const q = questions[currentQuestion];
+    const question = questions[currentQuestion];
 
     document.getElementById("question-number").textContent =
-        `Question ${currentQuestion + 1} / ${questions.length}`;
+        `QUESTION ${currentQuestion + 1} / ${questions.length}`;
 
     document.getElementById("score-display").textContent =
-        `Score: ${score}`;
+        `⭐ Score: ${score}`;
+
+    // Progress bar
+    const progress =
+        ((currentQuestion + 1) / questions.length) * 100;
 
     document.getElementById("progress-bar").style.width =
-        `${(currentQuestion / questions.length) * 100}%`;
+        progress + "%";
 
-    const area = document.getElementById("question-area");
+    // Display question and answers
+    let html = `
+        <h3>${question.question}</h3>
 
-    area.innerHTML = `
-        <h3>${q.question}</h3>
         <div class="answers">
-            ${q.answers.map((answer, index) => `
-                <button class="answer-option" onclick="checkAnswer(${index})">
-                    <span>${String.fromCharCode(65 + index)}</span>
-                    ${answer}
-                </button>
-            `).join("")}
+    `;
+
+    question.answers.forEach((answer, index) => {
+
+        html += `
+            <button
+                class="answer-option"
+                onclick="checkAnswer(${index})">
+                <span>${String.fromCharCode(65 + index)}.</span>
+                ${answer}
+            </button>
+        `;
+
+    });
+
+    html += `
         </div>
-        <p id="feedback"></p>
-        <button id="next-button" onclick="nextQuestion()" disabled>
-            Next Question →
+
+        <div id="feedback"></div>
+
+        <button id="next-button"
+                onclick="nextQuestion()"
+                disabled>
+            ${currentQuestion === questions.length - 1
+                ? "See Results →"
+                : "Next Question →"}
         </button>
     `;
+
+    document.getElementById("question-area").innerHTML = html;
+
 }
 
-function checkAnswer(index) {
+
+// CHECK ANSWER
+function checkAnswer(selectedIndex) {
+
     if (answered) return;
 
     answered = true;
 
-    const correct = questions[currentQuestion].correct;
-    const options = document.querySelectorAll(".answer-option");
-    const feedback = document.getElementById("feedback");
+    const question = questions[currentQuestion];
 
-    options.forEach((option, i) => {
-        option.disabled = true;
+    const buttons =
+        document.querySelectorAll(".answer-option");
 
-        if (i === correct) {
-            option.classList.add("correct-answer");
-        } else if (i === index) {
-            option.classList.add("wrong-answer");
-        }
-    });
+    const feedback =
+        document.getElementById("feedback");
 
-    if (index === correct) {
+    // Display correct answer
+    buttons[question.correct].classList.add("correct-answer");
+
+    if (selectedIndex === question.correct) {
+
         score++;
-        feedback.textContent = "✨ Correct answer! Well done!";
-        feedback.style.color = "#63a88a";
+
+        feedback.innerHTML = `
+            <p class="correct-feedback">
+                ✓ Correct answer!
+            </p>
+            <p>${question.explanation}</p>
+        `;
+
     } else {
-        feedback.textContent = "Not quite! The correct answer is highlighted.";
-        feedback.style.color = "#df668b";
+
+        buttons[selectedIndex].classList.add("wrong-answer");
+
+        feedback.innerHTML = `
+            <p class="wrong-feedback">
+                ✗ Incorrect answer!
+            </p>
+            <p>${question.explanation}</p>
+        `;
+
     }
 
+    // Update score
     document.getElementById("score-display").textContent =
-        `Score: ${score}`;
+        `⭐ Score: ${score}`;
 
+    // Disable all answers
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+
+    // Enable next button
     document.getElementById("next-button").disabled = false;
+
 }
 
+
+// NEXT QUESTION
 function nextQuestion() {
+
     if (!answered) return;
 
     currentQuestion++;
 
     if (currentQuestion < questions.length) {
+
         showQuestion();
+
     } else {
+
         showResult();
+
     }
+
 }
 
+
+// SHOW FINAL RESULT
 function showResult() {
+
     document.getElementById("question-area").style.display = "none";
+
+    document.getElementById("question-number").textContent =
+        "QUIZ COMPLETED";
+
+    document.getElementById("score-display").textContent =
+        `⭐ Score: ${score}/${questions.length}`;
+
     document.getElementById("progress-bar").style.width = "100%";
-    document.getElementById("question-number").textContent = "Quiz completed!";
 
-    let title;
-    let message;
+    let percentage = (score / questions.length) * 100;
+
     let emoji;
+    let message;
 
-    if (score >= 8) {
-        title = "Excellent!";
-        message = "You have great cybersecurity knowledge!";
+    if (percentage >= 80) {
+
         emoji = "🏆";
-    } else if (score >= 5) {
-        title = "Good Job!";
-        message = "You know the basics. Keep learning!";
+        message = "Excellent! You're a Cybersecurity Expert!";
+
+    } else if (percentage >= 50) {
+
         emoji = "🌸";
+        message = "Good job! Keep learning and improving!";
+
     } else {
-        title = "Keep Learning!";
-        message = "Review the cybersecurity basics and try again!";
+
         emoji = "💗";
+        message = "Keep practicing! You can become a Cybersecurity Pro!";
+
     }
 
     document.getElementById("quiz-result").innerHTML = `
         <div class="result-emoji">${emoji}</div>
-        <h2>${title}</h2>
-        <div class="final-score">${score} / ${questions.length}</div>
+
+        <h2>Quiz Completed!</h2>
+
+        <div class="final-score">
+            ${score} / ${questions.length}
+        </div>
+
+        <h3>${percentage}%</h3>
+
         <p>${message}</p>
-        <button onclick="restartQuiz()">↻ Try Again</button>
+
+        <button id="next-button" onclick="restartQuiz()">
+            ↻ Try Again
+        </button>
     `;
 
-    document.getElementById("score-display").textContent =
-        `Final Score: ${score}/${questions.length}`;
 }
 
+
+// RESTART QUIZ
 function restartQuiz() {
+
     currentQuestion = 0;
     score = 0;
+    answered = false;
 
     document.getElementById("question-area").style.display = "block";
+
     document.getElementById("quiz-result").innerHTML = "";
 
     showQuestion();
+
 }
 
+
+// START QUIZ
 showQuestion();
