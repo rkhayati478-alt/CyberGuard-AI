@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detector | CyberGuard AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h2>🛡️ CyberGuard AI</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#tools">Security Tools</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Phishing Detector</h1>
+        <h2>Detect suspicious messages with AI</h2>
+        <p>Analyze emails and messages to identify possible phishing attacks.</p>
+    </section>
+
+    <section class="detector">
+        <h2>Analyze Your Message</h2>
+
+        <textarea
+            id="message"
+            placeholder="Paste your suspicious email or message here..."
+        ></textarea>
+
+        <button onclick="analyzeMessage()">Analyze Message</button>
+
+        <div id="result"></div>
+    </section>
+
+    <script src="phishing.js"></script>
+
+</body>
+</html>
