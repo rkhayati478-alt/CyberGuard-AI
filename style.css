@@ -1997,3 +1997,25 @@ footer {
     }
 }
 
+/* DASHBOARD BUTTON ON HOME */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.dashboard-btn {
+    background: linear-gradient(135deg, #c58acb, #a65b91);
+    color: white !important;
+    border: none;
+    box-shadow: 0 5px 15px rgba(166, 91, 145, 0.2);
+}
+
+.dashboard-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(166, 91, 145, 0.3);
+}
