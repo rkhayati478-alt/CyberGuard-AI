@@ -7,7 +7,6 @@
     <title>Phishing Detector | CyberGuard AI</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <header>
@@ -18,26 +17,43 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="phishing-hero">
+        <div class="phishing-icon">📧</div>
         <h1>Phishing Detector</h1>
-        <h2>Detect suspicious messages with AI</h2>
-        <p>Analyze emails and messages to identify possible phishing attacks.</p>
+        <p>Stay safe online. Detect suspicious messages before it's too late.</p>
     </section>
 
-    <section class="detector">
-        <h2>Analyze Your Message</h2>
+    <main class="detector">
+        <div class="detector-heading">
+            <span>✨ Smart Security Analysis</span>
+            <h2>Analyze Your Message</h2>
+            <p>Paste your email or message below and let CyberGuard AI check it for suspicious signs.</p>
+        </div>
+
+        <label for="message">Your message</label>
 
         <textarea
             id="message"
-            placeholder="Paste your suspicious email or message here..."
+            placeholder="Dear user, your account has been suspended... Paste your message here."
         ></textarea>
 
-        <button onclick="analyzeMessage()">Analyze Message</button>
+        <div class="privacy-note">
+            🔒 Your message is analyzed in your browser.
+        </div>
+
+        <button onclick="analyzeMessage()">
+            ✨ Analyze Message
+        </button>
 
         <div id="result"></div>
-    </section>
+
+        <a class="back-home" href="index.html">← Back to Home</a>
+    </main>
+
+    <footer>
+        <p>© 2026 CyberGuard AI - All Rights Reserved</p>
+    </footer>
 
     <script src="phishing.js"></script>
-
 </body>
 </html>
