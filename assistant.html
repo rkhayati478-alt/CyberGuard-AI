@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant | CyberGuard AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h2>🛡️ CyberGuard AI</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#tools">Security Tools</a>
+        </nav>
+    </header>
+
+    <section class="phishing-hero">
+        <div class="phishing-icon">🤖</div>
+        <h1>Cybersecurity Assistant</h1>
+        <p>Your friendly assistant for a safer digital world.</p>
+    </section>
+
+    <main class="chat-container">
+
+        <div class="chat-heading">
+            <span>✨ CYBERGUARD AI</span>
+            <h2>How can I help you?</h2>
+            <p>Ask me anything about cybersecurity!</p>
+        </div>
+
+        <div class="chat-box" id="chatBox">
+            <div class="message bot-message">
+                <strong>🤖 CyberGuard AI</strong>
+                <p>Hello! 👋 Welcome to CyberGuard AI. Ask me a question about online security!</p>
+            </div>
+        </div>
+
+        <form class="chat-input-area" onsubmit="sendMessage(event)">
+            <input
+                type="text"
+                id="userInput"
+                placeholder="Ask me about cybersecurity..."
+                autocomplete="off"
+                required
+            >
+            <button type="submit">Send ➤</button>
+        </form>
+
+        <p class="chat-note">💗 Stay safe, stay protected!</p>
+
+        <a class="back-home" href="index.html">← Back to Home</a>
+
+    </main>
+
+    <footer>
+        <p>© 2026 CyberGuard AI - All Rights Reserved</p>
+    </footer>
+
+    <script src="assistant.js"></script>
+</body>
+</html>
