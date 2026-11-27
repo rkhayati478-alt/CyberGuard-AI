@@ -115,3 +115,8 @@ footer {
     background: #101a32;
     color: #aab5ca;
 }
+a.tool {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
