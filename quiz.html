@@ -4,54 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Quiz | CyberGuard AI</title>
+    <title>CyberGuard AI | Security Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<header>
-    <h2>🛡️ CyberGuard AI</h2>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#tools">Security Tools</a>
-    </nav>
-</header>
+<body class="quiz-page">
 
-<section class="phishing-hero">
-    <div class="phishing-icon">🧠</div>
-    <h1>Cybersecurity Quiz</h1>
-    <p>Test your knowledge and become a digital security expert.</p>
-</section>
+    <div class="quiz-layout">
 
-<main class="quiz-container">
+        <aside class="quiz-sidebar">
+            <a href="index.html" class="quiz-logo">🛡️ CyberGuard AI</a>
 
-    <div class="quiz-heading">
-        <span>✨ TEST YOUR KNOWLEDGE</span>
-        <h2>Are you cyber smart?</h2>
-        <p>Answer the questions and discover your cybersecurity level.</p>
+            <div class="quiz-side-card">
+                <div class="quiz-side-icon">🧠</div>
+                <h3>Security Quiz</h3>
+                <p>Challenge your cybersecurity knowledge.</p>
+            </div>
+
+            <div class="quiz-side-info">
+                <p>YOUR CHALLENGE</p>
+                <div>✨ 10 Questions</div>
+                <div>🎯 Multiple Choice</div>
+                <div>🏆 Instant Results</div>
+            </div>
+
+            <a href="index.html" class="quiz-home">⌂ Back to Home</a>
+        </aside>
+
+        <main class="quiz-main">
+
+            <div class="quiz-topbar">
+                <div>
+                    <strong>Cybersecurity Challenge</strong>
+                    <p>Learn. Test. Protect.</p>
+                </div>
+                <span class="quiz-live">● QUIZ MODE</span>
+            </div>
+
+            <section class="quiz-content">
+
+                <div class="quiz-welcome">
+                    <div class="quiz-welcome-icon">🌸</div>
+                    <span>WELCOME TO YOUR CHALLENGE</span>
+                    <h1>How cyber smart <span>are you?</span></h1>
+                    <p>
+                        Test your knowledge, discover your strengths
+                        and become more confident in online security.
+                    </p>
+                </div>
+
+                <div class="quiz-card">
+
+                    <div class="quiz-card-top">
+                        <span id="question-number">QUESTION 1 / 10</span>
+                        <span id="score-display">⭐ Score: 0</span>
+                    </div>
+
+                    <div class="quiz-progress">
+                        <div id="progress-bar"></div>
+                    </div>
+
+                    <div id="question-area"></div>
+
+                    <div id="quiz-result"></div>
+
+                </div>
+
+            </section>
+
+            <footer class="quiz-footer">
+                💗 Every answer makes you smarter and safer online.
+            </footer>
+
+        </main>
     </div>
 
-    <div class="quiz-info">
-        <span id="question-number">Question 1 / 10</span>
-        <span id="score-display">Score: 0</span>
-    </div>
-
-    <div class="progress-track">
-        <div id="progress-bar"></div>
-    </div>
-
-    <div id="question-area"></div>
-
-    <div id="quiz-result"></div>
-
-    <a class="back-home" href="index.html">← Back to Home</a>
-
-</main>
-
-<footer>
-    <p>© 2026 CyberGuard AI - All Rights Reserved</p>
-</footer>
-
-<script src="quiz.js"></script>
+    <script src="quiz.js"></script>
 </body>
 </html>
